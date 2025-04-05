@@ -27,6 +27,21 @@
     },
 
   ])
+
+  const bgColor = ref('')
+
+  const changeBgColor = () => {
+    const number = Math.random()
+    if(number > 0.3 && number <= 0.6) {
+      bgColor.value = 'rgb(42, 5, 102)'
+    } else if (number > 0.6) {
+       bgColor.value = 'grey'
+    } else {
+      bgColor.value = 'black'
+    }
+  }
+
+
 </script>
 
 <template>
@@ -42,6 +57,8 @@
       :title="card.title"
       :description="card.description"
       :content="card.content"
+      :changeBgColor="changeBgColor"
+      :bgColor="bgColor"
     />
   <Footer />
 </template>

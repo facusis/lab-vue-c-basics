@@ -4,13 +4,17 @@
     image: String,
     title: String,
     description: String,
-    content: String
+    content: String,
+    bgColor:String,
+    changeBgColor: Function
   
   })
+
 </script>
 
 <template>
-  <div class="card">
+  <button class="button" @click="changeBgColor">Change color</button>
+  <div class="card" :style="{ backgroundColor: bgColor }">
     <h2>{{ title }}</h2>
     <img :src="image"  :alt="title">
     <h4>{{ description }}</h4>
@@ -20,6 +24,12 @@
 
 
 <style scoped>
+
+  .button {
+    padding: 0.5rem 1rem;
+    background-color: darkcyan;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
